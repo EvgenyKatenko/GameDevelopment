@@ -1,16 +1,15 @@
-import pytest
 
-import GameElements as GE
+from GameElements.Snake import Snake
 
 def test_snake_creation() -> None:
-    snake = GE.Snake()
+    snake = Snake()
 
 def test_snake_move() -> None:
-    snake = GE.Snake()
+    snake = Snake()
     snake.move()
 
 def test_snake_say() -> None:
-    snake = GE.Snake()
+    snake = Snake()
     snake.saySmth("I'm the best snake in the world!")
 
 if __name__ == "__main__":
