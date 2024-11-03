@@ -1,4 +1,4 @@
-from . import Snake as snk
+import Snake as snk
 
 def main() -> None:
     snake = snk.Snake()
