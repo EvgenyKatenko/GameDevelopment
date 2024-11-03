@@ -1,4 +1,7 @@
+from . import Snake as snk
+
 def main() -> None:
+    snake = snk.Snake()
     print("Hello, World!")
     print("This is a test for the Snake Game Directory")
 
