@@ -1,7 +1,7 @@
-import Snake as snk
+import GameElements as GE
 
 def main() -> None:
-    snake = snk.Snake()
+    a = GE.Snake()
     print("Hello, World!")
     print("This is a test for the Snake Game Directory")
 
