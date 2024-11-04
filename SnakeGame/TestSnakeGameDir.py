@@ -1,4 +1,4 @@
-import GameElements as GE
+import SnakeGame.GameElements.Snake as GE
 
 def main() -> None:
     a = GE.Snake()
