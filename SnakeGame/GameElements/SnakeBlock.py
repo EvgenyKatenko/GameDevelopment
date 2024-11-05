@@ -6,7 +6,6 @@ from GameElements.Direction import MoveXY
 class SnakeBlock:
     x: int
     y: int
-    color: str
 
     def move_x(self, v: int) -> None:
         self.x += v

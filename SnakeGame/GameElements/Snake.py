@@ -8,13 +8,17 @@ class Snake:
     direction: Direction
 
     def __post_init__(self):
-        assert self.direction in Direction
-        assert len(self.blocks) > 0
+        if self.direction not in Direction: 
+            raise ValueError("Provide the acceptable direction!")
+        if self.length == 0: 
+            raise ValueError("Snake can't be empty")
         #validating the structure of the body
         #TODO: create specific exception for this
         if self.hasTail():
             for idx in range(1,len(self.blocks)):
-                assert abs(self.blocks[idx].x - self.blocks[idx - 1].x) + abs(self.blocks[idx].y - self.blocks[idx - 1].y) == 1
+                blocksDiff = abs(self.blocks[idx].x - self.blocks[idx - 1].x) + abs(self.blocks[idx].y - self.blocks[idx - 1].y) 
+                if blocksDiff > 1:
+                    raise ValueError("Block structure is wrong!!!")
 
     def move(self) -> None:
         # first move the body
@@ -25,6 +29,11 @@ class Snake:
     
     def hasTail(self) -> bool:
         return len(self.blocks) > 0
+    
+    def isHeadBodyCrossing(self) -> bool:
+        if self.length > 1:
+            return self.head in self.body
+        return False
     
     @property
     def head(self) -> SnakeBlock:
@@ -40,9 +49,9 @@ class Snake:
     @property
     def length(self) -> int:
         return len(self.blocks)
-
+    
     def extend(self) -> None:
-        newBlock = SnakeBlock(x = 0, y = 0, color = "green")
+        newBlock = SnakeBlock(x = 0, y = 0)
         self.blocks.append(newBlock)
 
     def printSnake(self) -> None:
