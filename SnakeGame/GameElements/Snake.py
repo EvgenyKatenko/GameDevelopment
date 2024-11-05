@@ -50,6 +50,12 @@ class Snake:
     def length(self) -> int:
         return len(self.blocks)
     
+    def changeDirection(self, newDirection : Direction) -> bool:
+        if (self.direction.value.x + newDirection.value.x == 0) and (self.direction.value.y + newDirection.value.y == 0):
+            return False
+        self.direction = newDirection
+        return True 
+    
     def extend(self) -> None:
         newBlock = SnakeBlock(x = 0, y = 0)
         self.blocks.append(newBlock)
